@@ -12,11 +12,9 @@ public class ACreatingATrie {
 				children[i] = null;
 //				System.out.print(i +":" +arr[i] +" ");
 			}
-			
+	
 			eow = false;
-			
 		}
-
 	}
 	
 	
@@ -32,16 +30,33 @@ public class ACreatingATrie {
 			
 			if(currNode.children[pointer] == null) {
 				currNode.children[pointer] = new Node();
-			}
-			
+			}			
 			currNode = currNode.children[pointer];
 			
 			if(i == word.length()-1) {
 				currNode.eow = true;
 			}
 		}
+	}
+	
+	public static boolean isWord(String word) {
 		
+		Node currNode = root;
+		for(int i=0; i<word.length(); i++) {
+			int pointer = word.charAt(i) - 'a';
+			
+			if(currNode.children[pointer] == null) {
+				return false;
+			} else {			
+				currNode = currNode.children[pointer];
+			}
+			
+			if(i == word.length()-1 && currNode.eow == true) {
+				return true;
+			}
+		}
 		
+		return false;
 	}
 	
 
@@ -58,7 +73,10 @@ public class ACreatingATrie {
 		for(int i=0; i<words.length; i++) {
 			insertWords(words[i]);
 		}
+		System.out.println("completed");
 		
+		boolean isWord = isWord("anyx");
+		System.out.println(isWord);
 		
 		
 	}
