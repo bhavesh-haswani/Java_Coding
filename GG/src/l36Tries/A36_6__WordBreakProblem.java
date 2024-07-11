@@ -60,7 +60,7 @@ public class A36_6__WordBreakProblem {
 			return true;
 		}		
 		
-		for(int i=1; i<key.length(); i++) {
+		for(int i=1; i<=key.length(); i++) {
 			String key1 = key.substring(0, i);
 			String key2 = key.substring(i);
 			
