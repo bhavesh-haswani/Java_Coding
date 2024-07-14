@@ -71,15 +71,20 @@ public class A26_7_PrefixProblem {
 	
 
 //3. Prefix Algo ---->	
-	public static String[] prefixAlgo(String words[]) {
+	  public static String[] prefixAlgo(String words[]) {
 		
 		for(int i=0; i<words.length; i++) {
 			insert(words[i]);
 		}
 		
-		String result[] = new String[words.length];
+		String allResults[] = new String[words.length];
 		
-//		if()
+        for(int i=0; i<words.length; i++) {
+            String result = prefixSearch(words[i]);
+            allResults[i] = result;
+        }
+        
+        return allResults;
 		
 	}
 	
@@ -98,8 +103,11 @@ public class A26_7_PrefixProblem {
 				return null;
 			}
 			currNode = currNode.children[pointer];
-			if(currNode.letterInUse > 1) {
-				result = result +(pointer +'a');
+			
+			result = result +Character.toString((char)pointer +'a');
+			
+			if(currNode.letterInUse == 1) {
+			  	return result;  
 			}
 		}
 		
@@ -111,18 +119,31 @@ public class A26_7_PrefixProblem {
 		
 		String arr[] = {"zebra", "dog", "duck", "dove"};
 	
-//		for(int i=0; i<arr.length; i++) {
-//			insert(arr[i]);
-//		}
+  		/*for(int i=0; i<arr.length; i++) {
+  			insert(arr[i]);
+  		}*/
 //		
 //		for(int i=0; i<arr.length; i++) {
 //			System.out.println(search(arr[i]));
 //		}
 		
-		String unique[] = prefixAlgo(arr);
-		System.out.println(unique);
-		
-		
+  		  String unique[] = prefixAlgo(arr);
+    		System.out.println(unique);
+        	for(int i=0; i<unique.length; i++) {
+  		      System.out.println(unique[i]);
+  		  }
+
+            System.out.println("---------------------");
+            String result = prefixSearch("dog");
+            System.out.println(result);
+            System.out.println(prefixSearch("dove"));
+		    System.out.println(prefixSearch("zebra"));
+		    System.out.println(prefixSearch("duck"));
+		    
+		    
+		    
+		    
+		    
 	}
 
 }
