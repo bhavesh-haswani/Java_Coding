@@ -1,6 +1,6 @@
 package l36Tries;
 
-public class ACreatingATrie {
+public class A36_1_5_CreatingATrie {
 	
 	static class Node {
 		
@@ -75,7 +75,7 @@ public class ACreatingATrie {
 		}
 		System.out.println("completed");
 		
-		boolean isWord = isWord("anyx");
+		boolean isWord = isWord("any");
 		System.out.println(isWord);
 		
 		
