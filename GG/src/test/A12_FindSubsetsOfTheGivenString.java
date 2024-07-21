@@ -1,6 +1,6 @@
 package test;
 
-public class FindSubsetsOfTheGivenString {
+public class A12_FindSubsetsOfTheGivenString {
 
 	public static void printSubsets(String str, String res, int pointer) {
 		

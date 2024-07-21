@@ -1,6 +1,6 @@
 package test;
 
-public class ForLoop {
+public class A13_ForLoop {
 
 	public static void main(String[] args) {
 		

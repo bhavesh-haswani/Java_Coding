@@ -1,6 +1,6 @@
 package test;
 
-public class ReturnStringAndBoolean {
+public class A14_ReturnStringAndBoolean {
 
 	
 	public static String exists(String word) {

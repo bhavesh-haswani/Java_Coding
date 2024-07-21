@@ -1,6 +1,6 @@
 package test;
 
-public class GridWays {
+public class A17_GridWays {
 	
 	public static int prinNoOfWaysInGrid(int a, int b, int m, int n) {
 		

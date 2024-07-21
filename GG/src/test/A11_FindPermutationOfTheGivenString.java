@@ -1,6 +1,6 @@
 package test;
 
-public class FindPermutationOfTheGivenString {
+public class A11_FindPermutationOfTheGivenString {
 
 	public static void printPermutation(String str, String res) {
 		

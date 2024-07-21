@@ -1,6 +1,6 @@
 package test;
 
-public class StringAppend {
+public class A19_StringAppend {
 	
 	public static void main(String args[]) {
 		

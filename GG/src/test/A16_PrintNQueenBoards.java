@@ -1,6 +1,6 @@
 package test;
 
-public class PrintNQueenBoards {
+public class A16_PrintNQueenBoards {
 
 	public static boolean chessRulesFollowed(char board[][], int row, int col) {
 		
