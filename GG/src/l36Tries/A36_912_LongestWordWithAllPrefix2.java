@@ -1,6 +1,6 @@
 package l36Tries;
 
-public class A36_910_LongestWordWithAllPrefix {
+public class A36_912_LongestWordWithAllPrefix2 {
 
 	static class Node {
 
@@ -66,17 +66,16 @@ public class A36_910_LongestWordWithAllPrefix {
 		}
 		
 		//longestWord code
-//		String longestWordWithAllPrefix = "";
+		String longestWordWithAllPrefix = "";
 		Node currNode = root;
-		longestWord(currNode, "");
+		longestWordWithAllPrefix = longestWord(currNode, longestWordWithAllPrefix, "");
 		
-		return longestWord;
+		return longestWordWithAllPrefix;
 	}
 	
-	public static String longestWord = "";
 	
 //---->4. longestWord
-	public static void longestWord(Node currNode, String temp) {
+	public static String longestWord(Node currNode, String longestWordWithAllPrefix, String temp) {
 		
 		for(int i=0; i<26; i++) {
 			
@@ -84,14 +83,16 @@ public class A36_910_LongestWordWithAllPrefix {
 					
 					temp += (char)(i + 'a');
 					System.out.println(temp);
-					if(temp.length() > longestWord.length()) {
-						longestWord = temp;
+					if(temp.length() > longestWordWithAllPrefix.length()) {
+						longestWordWithAllPrefix = temp;
 					}
-					longestWord(currNode.children[i], temp);
+					longestWordWithAllPrefix = longestWord(currNode.children[i], longestWordWithAllPrefix, temp);
 					temp = temp.substring(0, temp.length()-1);
 					
 			}
 		}
+		
+		return longestWordWithAllPrefix;
 		
 	}
 	
