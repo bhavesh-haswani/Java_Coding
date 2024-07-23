@@ -53,6 +53,7 @@ public class A37_7_DFS {
 				
 				return BFSlist;
 			}
+	
 		
 //---- 2. DFS - Depth First Search
 	public static ArrayList<Integer> DFS(ArrayList<Edge>[] graph) {
@@ -70,7 +71,7 @@ public class A37_7_DFS {
 		return DFSList;
 	}
 	
-	
+//---- 3. DFS-part	
 	public static void DFSpart(ArrayList<Edge>[] graph, int source, boolean isVertexVisited[], ArrayList<Integer> DFSList) {
 		
 		DFSList.add(source);
