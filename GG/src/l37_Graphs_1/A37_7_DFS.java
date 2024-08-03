@@ -59,14 +59,9 @@ public class A37_7_DFS {
 	public static ArrayList<Integer> DFS(ArrayList<Edge>[] graph) {
 		
 		ArrayList<Integer> DFSList = new ArrayList<>();
-		
 		boolean isVertexVisited[] = new boolean[graph.length];
 		
-		Queue<Integer> q = new LinkedList<>();
-		
-		
 		DFSpart(graph, 0, isVertexVisited, DFSList);
-		
 		
 		return DFSList;
 	}
