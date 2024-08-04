@@ -16,18 +16,44 @@ public class A38_3_CycleDetectionInUndirectedGraph {
 		
 	}
 	
-	
-	public static boolean cycleDetectionUndirectedGraph() {
+	//modified depth first search
+	public static boolean cycleDetectionUndirectedGraph(ArrayList<Edge>[] graph) {
 		
+		boolean isVisited[] = new boolean[graph.length];
 		
+		boolean isCycle = false;
 		
+		for(int i=0; i<graph.length; i++) {
+			if(isVisited[i] == false) {
+				isCycle = cycleDetectionUndirectedGraphUtil(graph, isVisited, i, -1);
+			}
+		}
 		
-		
-		return false;
+		return isCycle;
 		
 	}
 	
-	
+	public static boolean cycleDetectionUndirectedGraphUtil(ArrayList<Edge>[] graph, boolean isVisited[], int source, int parent) {
+		
+		isVisited[source] = true;
+		
+		for(int i=0; i<graph[source].size(); i++) {
+			
+			if(isVisited[ graph[source].get(i).destination ] == false) {
+				boolean isV = cycleDetectionUndirectedGraphUtil(graph, isVisited, graph[source].get(i).destination, source);
+				
+				if(isV) {
+					return true;
+				}
+				
+			} else if(isVisited[graph[source].get(i).destination] == true && graph[source].get(i).destination != parent) {
+				return true;	//cycle esists
+			}
+			
+		}
+		
+		return false;
+	}
 	
 
 	public static void main(String[] args) {
@@ -54,24 +80,23 @@ public class A38_3_CycleDetectionInUndirectedGraph {
 		
 		//
 		graph[0].add(new Edge(0, 1));
-		graph[0].add(new Edge(0, 2));
+//		graph[0].add(new Edge(0, 2));
 		graph[0].add(new Edge(0, 3));
 		
 		graph[1].add(new Edge(1, 0));
 		graph[1].add(new Edge(1, 2));
 		
-		graph[2].add(new Edge(2, 0));
+//		graph[2].add(new Edge(2, 0));
 		graph[2].add(new Edge(2, 1));
 		
 		graph[3].add(new Edge(3, 0));
 		graph[3].add(new Edge(3, 4));
 		
-		graph[4].add(new Edge(4, 2));
 		graph[4].add(new Edge(4, 3));
 		
 		
 		boolean cycleExists = cycleDetectionUndirectedGraph(graph);
-		
+		System.out.println(cycleExists);
 		
 	}
 
