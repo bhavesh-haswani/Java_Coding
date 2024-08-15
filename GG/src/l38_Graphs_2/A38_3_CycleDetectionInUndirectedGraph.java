@@ -39,6 +39,7 @@ public class A38_3_CycleDetectionInUndirectedGraph {
 		
 		for(int i=0; i<graph[source].size(); i++) {
 			
+			//case 3
 			if(isVisited[ graph[source].get(i).destination ] == false) {
 				boolean isV = cycleDetectionUndirectedGraphUtil(graph, isVisited, graph[source].get(i).destination, source);
 				
@@ -46,9 +47,12 @@ public class A38_3_CycleDetectionInUndirectedGraph {
 					return true;
 				}
 				
-			} else if(isVisited[graph[source].get(i).destination] == true && graph[source].get(i).destination != parent) {
+			} 
+			//case 1
+			else if(isVisited[graph[source].get(i).destination] == true && graph[source].get(i).destination != parent) {
 				return true;	//cycle esists
 			}
+			//case 2 - do nothing
 			
 		}
 		
@@ -80,13 +84,13 @@ public class A38_3_CycleDetectionInUndirectedGraph {
 		
 		//
 		graph[0].add(new Edge(0, 1));
-//		graph[0].add(new Edge(0, 2));
+		graph[0].add(new Edge(0, 2));
 		graph[0].add(new Edge(0, 3));
 		
 		graph[1].add(new Edge(1, 0));
 		graph[1].add(new Edge(1, 2));
 		
-//		graph[2].add(new Edge(2, 0));
+		graph[2].add(new Edge(2, 0));
 		graph[2].add(new Edge(2, 1));
 		
 		graph[3].add(new Edge(3, 0));
